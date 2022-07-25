@@ -44,7 +44,9 @@ class WorkoutBrowseCard extends StatelessWidget {
                   height: 5.h,
                 ),
                 Text(
-                    '${workout.exerciseCount} Exercises | ${workout.workoutDuration.inMinutes}mins'),
+                  '${workout.exerciseCount} Exercises | ${workout.workoutDuration.inMinutes}mins',
+                  style: TextFonts().kRegular12.copyWith(color: kGrey1),
+                ),
                 SizedBox(
                   height: 15.h,
                 ),

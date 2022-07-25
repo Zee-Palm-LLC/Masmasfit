@@ -68,7 +68,7 @@ class _ScheduleWorkoutDetailState extends State<ScheduleWorkoutDetail> {
               '${DateFormat.Md().format(widget.workoutTime)}, ${DateFormat.jm().format(widget.workoutTime)}',
               style: TextFonts().kRegular10.copyWith(color: kGrey1),
             ),
-            Icon(Icons.navigate_next_rounded, color: kGrey1, size: 16.w),
+            Icon(Icons.navigate_next_rounded, color: kGrey1, size: 20.w),
             SizedBox(width: 15.w),
           ],
         ),

@@ -52,22 +52,20 @@ class MealScheduleItemCard extends StatelessWidget {
           SizedBox(
             width: 10.w,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 9.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  mealName,
-                  style: TextFonts().kMedium14,
-                ),
-                Text(
-                  formatter.format(mealTime),
-                  style: TextFonts().kRegular12.copyWith(color: kGrey1),
-                )
-              ],
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                mealName,
+                style: TextFonts().kMedium14,
+              ),
+              SizedBox(height: 3.h),
+              Text(
+                formatter.format(mealTime),
+                style: TextFonts().kRegular12.copyWith(color: kGrey1),
+              )
+            ],
           ),
           const Expanded(child: SizedBox()),
           InkWell(

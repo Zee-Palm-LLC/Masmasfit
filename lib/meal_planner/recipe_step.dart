@@ -44,9 +44,8 @@ class _IllustratedStepsState extends State<IllustratedSteps> {
           },
           contentsBuilder: (context, index) {
             return Padding(
-              padding: EdgeInsets.only(left: 15.w, top: 30.h),
+              padding: EdgeInsets.only(left: 15.w, top: 30.h, right: 30.w),
               child: Container(
-                width: 253.w,
                 constraints: BoxConstraints(
                   minHeight: 44.w,
                 ),

@@ -60,10 +60,26 @@ class _AlarmCardState extends State<AlarmCard> {
               SizedBox(
                 height: 5.h,
               ),
-              Text(
-                'in ${timeDifference(toTime: widget.bedTime)}',
-                style: TextFonts().kMedium16.copyWith(color: kGrey1),
-              )
+              RichText(
+                  text: TextSpan(children: [
+                TextSpan(
+                    text: 'in ',
+                    style: TextFonts().kRegular14.copyWith(color: kGrey1)),
+                TextSpan(
+                    text:
+                        '${widget.bedTime.difference(DateTime.now()).inHours}',
+                    style: TextFonts().kMedium16.copyWith(color: kGrey1)),
+                TextSpan(
+                    text: 'hours ',
+                    style: TextFonts().kRegular14.copyWith(color: kGrey1)),
+                TextSpan(
+                    text:
+                        '${widget.bedTime.difference(DateTime.now()).inMinutes % 60}',
+                    style: TextFonts().kMedium16.copyWith(color: kGrey1)),
+                TextSpan(
+                    text: 'minutes ',
+                    style: TextFonts().kRegular14.copyWith(color: kGrey1)),
+              ]))
             ],
           ),
           const Expanded(child: SizedBox()),

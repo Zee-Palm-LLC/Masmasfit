@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:gradient_widgets/gradient_widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icon.dart';
+import 'package:masmas_fit/widgets/close_button_grey.dart';
 import 'package:masmas_fit/workout_tracker/add_workout_choose_workout.dart';
 import 'package:masmas_fit/workout_tracker/add_workout_difficulty_picker.dart';
 import 'package:masmas_fit/workout_tracker/custom_repititions.dart';
@@ -48,8 +49,8 @@ class _AddWorkoutScheduleState extends State<AddWorkoutSchedule> {
             statusBarIconBrightness: Brightness.dark),
         leadingWidth: 62.w,
         leading: Padding(
-          padding: EdgeInsets.only(left: 30.0.w),
-          child: Center(child: backButtonGrey(null)),
+          padding: EdgeInsets.only(left: 20.0.w),
+          child: Center(child: closeButtonGrey(null)),
         ),
         title: Text(
           'Add Schedule',

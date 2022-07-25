@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(375, 812),
+        
         builder: (context, widget) {
           return GetMaterialApp(
             theme: ThemeData(

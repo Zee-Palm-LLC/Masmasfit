@@ -282,25 +282,22 @@ class _AddAlarmState extends State<AddAlarm> {
                   ),
                 ),
                 const Expanded(child: SizedBox()),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: Container(
-                      decoration: BoxDecoration(boxShadow: [kBlueShadow]),
-                      child: GradientButton(
-                          elevation: 0,
-                          increaseHeightBy: 18.h,
-                          increaseWidthBy: 300.w,
-                          gradient: kBlueLinear,
-                          child: Text(
-                            'Add',
-                            style: TextFonts().kBold16.copyWith(color: kWhite),
-                          ),
-                          callback: () {
-                            Get.back();
-                          })),
-                ),
+                Container(
+                    decoration: BoxDecoration(boxShadow: [kBlueShadow]),
+                    child: GradientButton(
+                        elevation: 0,
+                        increaseHeightBy: 30.h,
+                        increaseWidthBy: Get.width,
+                        gradient: kBlueLinear,
+                        child: Text(
+                          'Add',
+                          style: TextFonts().kBold16.copyWith(color: kWhite),
+                        ),
+                        callback: () {
+                          Get.back();
+                        })),
                 SizedBox(
-                  height: 20.h,
+                  height: 30.h,
                 )
               ],
             ),

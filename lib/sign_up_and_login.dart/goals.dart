@@ -94,7 +94,7 @@ class MyGoalsState extends State<MyGoals> {
                             transition: Transition.cupertino);
                       }),
                 ),
-                SizedBox(height: 10.h)
+                SizedBox(height: 30.h)
               ],
             ),
           ),

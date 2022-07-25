@@ -45,6 +45,7 @@ class WorkoutDetails extends StatefulWidget {
 class _WorkoutDetailsState extends State<WorkoutDetails> {
   bool liked = false;
   bool readMore = false;
+  final int calories = Random().nextInt(500) + 150;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,234 +126,226 @@ class _WorkoutDetailsState extends State<WorkoutDetails> {
                       topLeft: Radius.circular(50.r),
                       topRight: Radius.circular(50.r),
                     )),
-                width: Get.width,
-                constraints: BoxConstraints(
-                    minHeight: Get.height / 2, maxHeight: Get.height - 90.h),
                 child: DraggableScrollableSheet(
+                    initialChildSize: 0.55,
+                    maxChildSize: 0.875,
+                    minChildSize: 0.55,
                     expand: false,
                     builder: (context, scrollContainer) {
-                      return SingleChildScrollView(
+                      return ListView(
+                        padding: EdgeInsets.only(top: 15.h),
                         controller: scrollContainer,
-                        physics: const BouncingScrollPhysics(),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            SizedBox(
-                              height: 10.h,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 162.w),
+                            child: Container(
+                              width: 50.w,
+                              height: 5.h,
+                              decoration: BoxDecoration(
+                                  color: kBlack.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(50.r)),
                             ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 162.w),
-                              child: Container(
-                                width: 50.w,
-                                height: 5.h,
-                                decoration: BoxDecoration(
-                                    color: kBlack.withOpacity(0.1),
-                                    borderRadius: BorderRadius.circular(50.r)),
+                          ),
+                          SizedBox(
+                            height: 25.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 30.w),
+                            child: SizedBox(
+                              width: 315.w,
+                              height: 50.h,
+                              child: Row(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        widget.workout.name,
+                                        style: TextFonts().kBold16,
+                                      ),
+                                      SizedBox(
+                                        height: 5.h,
+                                      ),
+                                      Text(
+                                          '${widget.workout.exerciseCount} Exercises | ${widget.workout.workoutDuration.inMinutes}mins | $calories Calories Burn',
+                                          style: TextFonts()
+                                              .kRegular12
+                                              .copyWith(color: kGrey1))
+                                    ],
+                                  ),
+                                  const Expanded(child: SizedBox()),
+                                  LikeButtonn(
+                                      liked: liked,
+                                      changeLike: () => setState(() {
+                                            liked = !liked;
+                                          }))
+                                ],
                               ),
                             ),
-                            SizedBox(
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                            child: ScheduleWorkoutDetail(
+                                workoutTime: widget.workout.workoutTime),
+                          ),
+                          SizedBox(
+                            height: 15.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                            child: WorkoutDifficultPicker(),
+                          ),
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                            child: SizedBox(
+                              width: 315.w,
                               height: 25.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 30.w),
-                              child: SizedBox(
-                                width: 315.w,
-                                height: 50.h,
-                                child: Row(
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          widget.workout.name,
-                                          style: TextFonts().kBold16,
-                                        ),
-                                        SizedBox(
-                                          height: 5.h,
-                                        ),
-                                        Text(
-                                            '${widget.workout.exerciseCount} Exercises | ${widget.workout.workoutDuration.inMinutes}mins | ${Random().nextInt(500) + 150} Calories Burn',
-                                            style: TextFonts()
-                                                .kRegular12
-                                                .copyWith(color: kGrey1))
-                                      ],
-                                    ),
-                                    const Expanded(child: SizedBox()),
-                                    LikeButtonn(
-                                        liked: liked,
-                                        changeLike: () => setState(() {
-                                              liked = !liked;
-                                            }))
-                                  ],
-                                ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                      height: 50.h,
+                                      width: 170.w,
+                                      child: Text(
+                                        "You'll Need",
+                                        style: TextFonts().kSemiBold16,
+                                      )),
+                                  const Expanded(child: SizedBox()),
+                                  Text(
+                                    '5 Items',
+                                    style: TextFonts()
+                                        .kRegular12
+                                        .copyWith(color: kGrey2),
+                                  ),
+                                ],
                               ),
                             ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: ScheduleWorkoutDetail(
-                                  workoutTime: widget.workout.workoutTime),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: WorkoutDifficultPicker(),
-                            ),
-                            SizedBox(
-                              height: 30.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: SizedBox(
-                                width: 315.w,
-                                height: 25.h,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SizedBox(
-                                        height: 50.h,
-                                        width: 170.w,
-                                        child: Text(
-                                          "You'll Need",
-                                          style: TextFonts().kSemiBold16,
-                                        )),
-                                    const Expanded(child: SizedBox()),
-                                    Text(
-                                      '5 Items',
-                                      style: TextFonts()
-                                          .kRegular12
-                                          .copyWith(color: kGrey2),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            Container(
-                              constraints: BoxConstraints(
-                                  maxHeight: 178.h, maxWidth: Get.width),
-                              child: ListView.separated(
-                                physics: const BouncingScrollPhysics(),
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                padding: EdgeInsets.symmetric(horizontal: 30.w),
-                                itemCount: equipments.length,
-                                separatorBuilder:
-                                    (BuildContext context, int index) {
-                                  return SizedBox(
-                                    width: 15.w,
-                                  );
-                                },
-                                itemBuilder: (BuildContext context, int index) {
-                                  return Center(
-                                    child: EquipmentCard(
-                                        equipment: equipments[index]),
-                                  );
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              height: 30.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: SizedBox(
-                                width: 315.w,
-                                height: 25.h,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SizedBox(
-                                        height: 50.h,
-                                        width: 170.w,
-                                        child: Text(
-                                          "Exercises",
-                                          style: TextFonts().kSemiBold16,
-                                        )),
-                                    const Expanded(child: SizedBox()),
-                                    Text(
-                                      '2 sets',
-                                      style: TextFonts()
-                                          .kRegular12
-                                          .copyWith(color: kGrey2),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: Text(
-                                "Set 1",
-                                style: TextFonts().kMedium12,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            ListView.separated(
-                              padding: EdgeInsets.zero,
+                          ),
+                          SizedBox(
+                            height: 15.h,
+                          ),
+                          Container(
+                            constraints: BoxConstraints(
+                                maxHeight: 178.h, maxWidth: Get.width),
+                            child: ListView.separated(
+                              physics: const BouncingScrollPhysics(),
                               shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: set1.length,
+                              scrollDirection: Axis.horizontal,
+                              padding: EdgeInsets.symmetric(horizontal: 30.w),
+                              itemCount: equipments.length,
                               separatorBuilder:
                                   (BuildContext context, int index) {
                                 return SizedBox(
-                                  height: 15.h,
+                                  width: 15.w,
                                 );
                               },
                               itemBuilder: (BuildContext context, int index) {
                                 return Center(
-                                    child: ExerciseCard(exercise: set1[index]));
-                              },
-                            ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: Text(
-                                "Set 2",
-                                style: TextFonts().kMedium12,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            ListView.separated(
-                              padding: EdgeInsets.zero,
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: set1.length,
-                              separatorBuilder:
-                                  (BuildContext context, int index) {
-                                return SizedBox(
-                                  height: 15.h,
+                                  child: EquipmentCard(
+                                      equipment: equipments[index]),
                                 );
                               },
-                              itemBuilder: (BuildContext context, int index) {
-                                return Center(
-                                    child: ExerciseCard(
-                                        exercise:
-                                            set1[set1.length - index - 1]));
-                              },
                             ),
-                            SizedBox(
-                              height: 30.h,
-                            )
-                          ],
-                        ),
+                          ),
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                            child: SizedBox(
+                              width: 315.w,
+                              height: 25.h,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                      height: 50.h,
+                                      width: 170.w,
+                                      child: Text(
+                                        "Exercises",
+                                        style: TextFonts().kSemiBold16,
+                                      )),
+                                  const Expanded(child: SizedBox()),
+                                  Text(
+                                    '2 sets',
+                                    style: TextFonts()
+                                        .kRegular12
+                                        .copyWith(color: kGrey2),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "Set 1",
+                              style: TextFonts().kMedium12,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15.h,
+                          ),
+                          ListView.separated(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: set1.length,
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return SizedBox(
+                                height: 15.h,
+                              );
+                            },
+                            itemBuilder: (BuildContext context, int index) {
+                              return Center(
+                                  child: ExerciseCard(exercise: set1[index]));
+                            },
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "Set 2",
+                              style: TextFonts().kMedium12,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15.h,
+                          ),
+                          ListView.separated(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: set1.length,
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return SizedBox(
+                                height: 15.h,
+                              );
+                            },
+                            itemBuilder: (BuildContext context, int index) {
+                              return Center(
+                                  child: ExerciseCard(
+                                      exercise: set1[set1.length - index - 1]));
+                            },
+                          ),
+                          SizedBox(
+                            height: 30.h,
+                          )
+                        ],
                       );
                     }),
               ),

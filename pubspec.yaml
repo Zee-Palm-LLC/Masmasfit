@@ -50,6 +50,7 @@ dependencies:
   path: ^1.8.1
   timelines: ^0.1.0
   syncfusion_flutter_calendar: ^20.2.39
+  flutter_svg_provider: ^1.0.3
 dependency_overrides:
   camera_android: 0.9.7+1
 dev_dependencies:

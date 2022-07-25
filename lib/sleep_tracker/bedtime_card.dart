@@ -61,10 +61,26 @@ class _BedtimeCardState extends State<BedtimeCard> {
               SizedBox(
                 height: 5.h,
               ),
-              Text(
-                'in ${timeDifference(toTime: widget.bedTime)}',
-                style: TextFonts().kMedium16.copyWith(color: kGrey1),
-              )
+              RichText(
+                  text: TextSpan(children: [
+                TextSpan(
+                    text: 'in ',
+                    style: TextFonts().kRegular14.copyWith(color: kGrey1)),
+                TextSpan(
+                    text:
+                        '${widget.bedTime.difference(DateTime.now()).inHours}',
+                    style: TextFonts().kMedium16.copyWith(color: kGrey1)),
+                TextSpan(
+                    text: 'hours ',
+                    style: TextFonts().kRegular14.copyWith(color: kGrey1)),
+                TextSpan(
+                    text:
+                        '${widget.bedTime.difference(DateTime.now()).inMinutes % 60}',
+                    style: TextFonts().kMedium16.copyWith(color: kGrey1)),
+                TextSpan(
+                    text: 'minutes ',
+                    style: TextFonts().kRegular14.copyWith(color: kGrey1)),
+              ]))
             ],
           ),
           const Expanded(child: SizedBox()),
@@ -98,11 +114,5 @@ class _BedtimeCardState extends State<BedtimeCard> {
         ],
       ),
     );
-  }
-
-  String timeDifference({required DateTime toTime}) {
-    DateTime currentTime = DateTime.now();
-    Duration difference = toTime.difference(currentTime);
-    return '${(difference.inHours).toString()}hours ${(difference.inMinutes % 60).toString()}minutes';
   }
 }

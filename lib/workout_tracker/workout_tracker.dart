@@ -64,7 +64,7 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
       //   elevation: 0,
       // ),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         child: Container(
           height: Get.height,
           width: Get.width,
@@ -88,109 +88,103 @@ class _WorkoutTrackerState extends State<WorkoutTracker> {
                       topLeft: Radius.circular(50.r),
                       topRight: Radius.circular(50.r),
                     )),
-                width: Get.width,
-                constraints: BoxConstraints(
-                    minHeight: Get.height / 2, maxHeight: Get.height - 90.h),
                 child: DraggableScrollableSheet(
                     expand: false,
-                    builder: (context, scrollContainer) {
-                      return SingleChildScrollView(
-                        controller: scrollContainer,
-                        physics: const BouncingScrollPhysics(),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SizedBox(
-                                height: 10.h,
+                    maxChildSize: 0.875,
+                    minChildSize: 0.6,
+                    initialChildSize: 0.6,
+                    builder: (context, scrollController) {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                        child: ListView(
+                          padding: EdgeInsets.only(top: 10.h),
+                          controller: scrollController,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 132.w),
+                              child: Container(
+                                width: 50.w,
+                                height: 5.h,
+                                decoration: BoxDecoration(
+                                    color: kBlack.withOpacity(0.1),
+                                    borderRadius: BorderRadius.circular(50.r)),
                               ),
-                              Padding(
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 132.w),
-                                child: Container(
-                                  width: 50.w,
-                                  height: 5.h,
-                                  decoration: BoxDecoration(
-                                      color: kBlack.withOpacity(0.1),
-                                      borderRadius:
-                                          BorderRadius.circular(50.r)),
-                                ),
+                            ),
+                            SizedBox(
+                              height: 25.h,
+                            ),
+                            CheckDailyWorkoutScheduleCard(),
+                            SizedBox(
+                              height: 30.h,
+                            ),
+                            SizedBox(
+                              width: 315.w,
+                              height: 25.h,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                      height: 50.h,
+                                      width: 170.w,
+                                      child: Text(
+                                        'Upcoming Workout',
+                                        style: TextFonts().kSemiBold16,
+                                      )),
+                                  const Expanded(child: SizedBox()),
+                                  Text(
+                                    'See more',
+                                    style: TextFonts()
+                                        .kRegular12
+                                        .copyWith(color: kGrey2),
+                                  ),
+                                ],
                               ),
-                              SizedBox(
-                                height: 25.h,
-                              ),
-                              CheckDailyWorkoutScheduleCard(),
-                              SizedBox(
-                                height: 30.h,
-                              ),
-                              SizedBox(
-                                width: 315.w,
-                                height: 25.h,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SizedBox(
-                                        height: 50.h,
-                                        width: 170.w,
-                                        child: Text(
-                                          'Upcoming Workout',
-                                          style: TextFonts().kSemiBold16,
-                                        )),
-                                    const Expanded(child: SizedBox()),
-                                    Text(
-                                      'See more',
-                                      style: TextFonts()
-                                          .kRegular12
-                                          .copyWith(color: kGrey2),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              UpcomingWorkoutCard(
-                                  workoutTime: workouts[0].workoutTime,
-                                  color: kBlue2,
-                                  workout: workouts[0].name,
-                                  workoutIconPath: workouts[0].workoutIconPath),
-                              SizedBox(
-                                height: 15.h,
-                              ),
-                              UpcomingWorkoutCard(
-                                  workoutTime: workouts[1].workoutTime,
-                                  color: kBlue2,
-                                  workout: workouts[1].name,
-                                  workoutIconPath: workouts[1].workoutIconPath),
-                              SizedBox(
-                                height: 30.h,
-                              ),
-                              Text(
-                                'What Do You Want to Train',
-                                style: TextFonts().kSemiBold16,
-                              ),
-                              SizedBox(
-                                height: 15.h,
-                              ),
-                              ListView.separated(
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                padding: EdgeInsets.only(bottom: 30.h),
-                                itemCount: workouts.length,
-                                separatorBuilder:
-                                    (BuildContext context, int index) {
-                                  return SizedBox(
-                                    height: 15.h,
-                                  );
-                                },
-                                itemBuilder: (BuildContext context, int index) {
-                                  return Center(
-                                    child: WorkoutBrowseCard(
-                                        workout: workouts[index]),
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            UpcomingWorkoutCard(
+                                workoutTime: workouts[0].workoutTime,
+                                color: kBlue2,
+                                workout: workouts[0].name,
+                                workoutIconPath: workouts[0].workoutIconPath),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            UpcomingWorkoutCard(
+                                workoutTime: workouts[1].workoutTime,
+                                color: kBlue2,
+                                workout: workouts[1].name,
+                                workoutIconPath: workouts[1].workoutIconPath),
+                            SizedBox(
+                              height: 30.h,
+                            ),
+                            Text(
+                              'What Do You Want to Train',
+                              style: TextFonts().kSemiBold16,
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            ListView.separated(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              padding: EdgeInsets.only(bottom: 30.h),
+                              itemCount: workouts.length,
+                              separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return SizedBox(
+                                  height: 15.h,
+                                );
+                              },
+                              itemBuilder: (BuildContext context, int index) {
+                                return Center(
+                                  child: WorkoutBrowseCard(
+                                      workout: workouts[index]),
+                                );
+                              },
+                            ),
+                          ],
                         ),
                       );
                     }),

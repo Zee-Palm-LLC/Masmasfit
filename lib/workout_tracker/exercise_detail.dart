@@ -120,7 +120,7 @@ class _ExerciseDetailsState extends State<ExerciseDetails> {
                             maxLines: readMore ? 10 : 3,
                             overflow: TextOverflow.ellipsis,
                             style:
-                                TextFonts().kRegular10.copyWith(color: kGrey1)),
+                                TextFonts().kRegular12.copyWith(color: kGrey1)),
                         InkWell(
                           onTap: () => setState(() => readMore = !readMore),
                           child: GradientText(
@@ -131,6 +131,9 @@ class _ExerciseDetailsState extends State<ExerciseDetails> {
                         )
                       ],
                     )),
+                SizedBox(
+                  height: 30.h,
+                ),
                 SizedBox(
                   width: 315.w,
                   height: 25.h,
@@ -233,7 +236,7 @@ class _ExerciseDetailsState extends State<ExerciseDetails> {
                   ),
                 ),
                 SizedBox(
-                  height: 60.h,
+                  height: 95.h,
                 )
               ],
             ),

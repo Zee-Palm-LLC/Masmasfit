@@ -55,7 +55,7 @@ class MealTypeCard extends StatelessWidget {
                     style: TextFonts().kRegular12.copyWith(color: kGrey1),
                   ),
                   SizedBox(
-                    height: 15.h,
+                    height: 10.h,
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: 60.0.w),
@@ -80,8 +80,8 @@ class MealTypeCard extends StatelessWidget {
             Align(
               alignment: Alignment.topRight,
               child: SizedBox(
-                width: 120.w,
-                height: 75.h,
+                width: 110.w,
+                height: 70.h,
                 child: SvgPicture.asset(
                   Assets().kPie,
                   fit: BoxFit.contain,

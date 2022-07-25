@@ -165,7 +165,7 @@ class _WorkoutGraphState extends State<WorkoutGraph> {
         workoutType: 'Fullbody Workout'),
     WokroutChartData(
         day: DateTime.now().add(3.days),
-        percentage: 99,
+        percentage: 94,
         workoutType: 'Lowerbody Workout'),
     WokroutChartData(
         day: DateTime.now().add(4.days),

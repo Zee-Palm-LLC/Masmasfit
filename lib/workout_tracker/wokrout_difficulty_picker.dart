@@ -50,25 +50,33 @@ class _WorkoutDifficultPickerState extends State<WorkoutDifficultPicker> {
                         });
                       },
                       children: [
-                        Text(
-                          'Easy',
-                          style:
-                              TextFonts().kSemiBold16.copyWith(color: kWhite),
+                        Center(
+                          child: Text(
+                            'Easy',
+                            style:
+                                TextFonts().kSemiBold16.copyWith(color: kWhite),
+                          ),
                         ),
-                        Text(
-                          'Medium',
-                          style:
-                              TextFonts().kSemiBold16.copyWith(color: kWhite),
+                        Center(
+                          child: Text(
+                            'Medium',
+                            style:
+                                TextFonts().kSemiBold16.copyWith(color: kWhite),
+                          ),
                         ),
-                        Text(
-                          'Hard',
-                          style:
-                              TextFonts().kSemiBold16.copyWith(color: kWhite),
+                        Center(
+                          child: Text(
+                            'Hard',
+                            style:
+                                TextFonts().kSemiBold16.copyWith(color: kWhite),
+                          ),
                         ),
-                        Text(
-                          'Ultra',
-                          style:
-                              TextFonts().kSemiBold16.copyWith(color: kWhite),
+                        Center(
+                          child: Text(
+                            'Ultra',
+                            style:
+                                TextFonts().kSemiBold16.copyWith(color: kWhite),
+                          ),
                         ),
                       ],
                     ));
@@ -83,14 +91,14 @@ class _WorkoutDifficultPickerState extends State<WorkoutDifficultPicker> {
             SizedBox(
               width: 10.w,
             ),
-            Text('Schedule Workout',
+            Text('Difficulty',
                 style: TextFonts().kRegular12.copyWith(color: kGrey1)),
             const Expanded(child: SizedBox()),
             Text(
               difficulties[difficultyIndex],
               style: TextFonts().kRegular10.copyWith(color: kGrey1),
             ),
-            Icon(Icons.navigate_next_rounded, color: kGrey1, size: 16.w),
+            Icon(Icons.navigate_next_rounded, color: kGrey1, size: 20.w),
             SizedBox(width: 15.w),
           ],
         ),

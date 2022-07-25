@@ -38,8 +38,11 @@ class RegistrationSuccess extends StatelessWidget {
                 'Welcome, Stefani',
                 style: TitleFonts().kBold20,
               ),
+              SizedBox(
+                height: 5.h,
+              ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 80.w),
+                padding: EdgeInsets.symmetric(horizontal: 81.w),
                 child: Text(
                   'You are all set now, let’s reach your goals together with us',
                   style: TextFonts().kRegular12.copyWith(color: kGrey1),
@@ -51,7 +54,7 @@ class RegistrationSuccess extends StatelessWidget {
                 decoration: BoxDecoration(boxShadow: [kBlueShadow]),
                 child: GradientButton(
                     elevation: 1,
-                    increaseHeightBy: 18.h,
+                    increaseHeightBy: 30.h,
                     increaseWidthBy: 250.w,
                     gradient: kBlueLinear,
                     child: Text(

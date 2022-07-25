@@ -27,7 +27,7 @@ class CustomWeights extends StatelessWidget {
           Text('Custom Weights',
               style: TextFonts().kRegular12.copyWith(color: kGrey1)),
           const Expanded(child: SizedBox()),
-          Icon(Icons.navigate_next_rounded, color: kGrey1, size: 16.w),
+          Icon(Icons.navigate_next_rounded, color: kGrey1, size: 20.w),
           SizedBox(width: 15.w),
         ],
       ),

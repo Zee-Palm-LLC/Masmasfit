@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -129,8 +128,8 @@ class _MealDetailsState extends State<MealDetails> {
                     )),
                 width: Get.width,
                 child: DraggableScrollableSheet(
-                    initialChildSize: 0.5,
-                    maxChildSize: 0.9,
+                    initialChildSize: 0.6,
+                    maxChildSize: 0.875,
                     minChildSize: 0.5,
                     expand: false,
                     builder: (context, scrollContainer) {
@@ -155,7 +154,7 @@ class _MealDetailsState extends State<MealDetails> {
                               height: 25.h,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 30.w),
+                              padding: EdgeInsets.symmetric(horizontal: 30.w),
                               child: SizedBox(
                                 width: 315.w,
                                 height: 50.h,
@@ -253,7 +252,7 @@ class _MealDetailsState extends State<MealDetails> {
                               height: 30.h,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 30.w),
+                              padding: EdgeInsets.symmetric(horizontal: 30.w),
                               child: SizedBox(
                                 width: 315.w,
                                 height: 50.h,
@@ -268,7 +267,12 @@ class _MealDetailsState extends State<MealDetails> {
                                           style: TextFonts().kSemiBold16,
                                         )),
                                     const Expanded(child: SizedBox()),
-                                    Text('${ingredients.length} items'),
+                                    Text(
+                                      '${ingredients.length} items',
+                                      style: TextFonts()
+                                          .kRegular12
+                                          .copyWith(color: kGrey1),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -281,7 +285,7 @@ class _MealDetailsState extends State<MealDetails> {
                               height: 30.h,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 30.0.w),
+                              padding: EdgeInsets.symmetric(horizontal: 30.0.w),
                               child: SizedBox(
                                 height: 25.h,
                                 width: 315.w,

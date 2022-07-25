@@ -22,8 +22,8 @@ class _HeartBeatGraphBoxState extends State<HeartBeatGraphBox> {
       (index) => ChartData(
           x: index + 1,
           y: Random().nextBool()
-              ? 80 + Random().nextDouble() * 10
-              : 80 - Random().nextDouble() * 5));
+              ? 60 + Random().nextDouble() * 10
+              : 60 - Random().nextDouble() * 5));
   double heartRate = 80;
   final TrackballBehavior _behavior = TrackballBehavior(
       markerSettings: TrackballMarkerSettings(
@@ -87,7 +87,7 @@ class _HeartBeatGraphBoxState extends State<HeartBeatGraphBox> {
                   isVisible: false,
                 ),
                 primaryYAxis: NumericAxis(
-                    isVisible: false, minimum: 70, maximum: 100, interval: 1),
+                    isVisible: false, minimum: 50, maximum: 85, interval: 1),
                 series: <ChartSeries>[
                   AreaSeries<ChartData, int>(
                       borderGradient: kBlueLinear,

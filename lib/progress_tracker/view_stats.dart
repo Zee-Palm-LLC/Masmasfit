@@ -68,7 +68,7 @@ class _ViewStatisticsState extends State<ViewStatistics> {
                   color: stats[index].color);
             })),
         SizedBox(
-          height: 10.h,
+          height: 30.h,
         ),
         SizedBox(
           width: 315.w,

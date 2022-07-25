@@ -32,6 +32,7 @@ class _MealTimeDropdownState extends State<MealTimeDropdown> {
         child: ButtonTheme(
           alignedDropdown: true,
           child: DropdownButton<String>(
+            style: TextFonts().kRegular10.copyWith(color: kWhite),
             isExpanded: true,
             value: widget.dropdownValue,
             items: [

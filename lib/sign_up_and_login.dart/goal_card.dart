@@ -37,9 +37,16 @@ class GoalCard extends StatelessWidget {
             ? Column(
                 children: [
                   SizedBox(
-                    height: 35.h,
+                    height: 30.h,
                   ),
-                  SvgPicture.asset(imagePath),
+                  SizedBox(
+                      height: 270.h,
+                      width: 220.w,
+                      child: SvgPicture.asset(
+                        imagePath,
+                        fit: BoxFit.contain,
+                      )),
+                  SizedBox(height: 30.h),
                   Text(
                     title,
                     style: TextFonts().kSemiBold14.copyWith(color: kWhite),

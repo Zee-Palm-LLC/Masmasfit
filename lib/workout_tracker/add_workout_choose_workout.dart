@@ -74,7 +74,10 @@ class _AddWorkoutWorkoutChooseWorkoutState
               '${workouts[workoutIndex]} Workout',
               style: TextFonts().kRegular10.copyWith(color: kGrey2),
             ),
-            Icon(Icons.navigate_next_rounded, color: kGrey1, size: 16.w),
+            SizedBox(
+              width: 5.w,
+            ),
+            Icon(Icons.navigate_next_rounded, color: kGrey1, size: 20.w),
             SizedBox(width: 15.w),
           ],
         ),

@@ -28,15 +28,33 @@ class IdealSleepCard extends StatelessWidget {
               children: [
                 Text(
                   'Ideal Hours for Sleep',
-                  style: TextFonts().kRegular12,
+                  style: TextFonts().kMedium12,
                 ),
                 SizedBox(
                   height: 5.h,
                 ),
-                GradientText(
-                  '${idealSleep.inHours.toString()}hours ${(idealSleep.inMinutes % 60).toString()}minutes',
-                  style: TextFonts().kMedium14,
-                  gradient: kBlueLinear,
+                ShaderMask(
+                  shaderCallback: (bounds) {
+                    return kBlueLinear.createShader(bounds);
+                  },
+                  child: RichText(
+                      text: TextSpan(children: [
+                    TextSpan(
+                        text: 'in ',
+                        style: TextFonts().kRegular14.copyWith(color: kWhite)),
+                    TextSpan(
+                        text: '${idealSleep.inHours}',
+                        style: TextFonts().kMedium16.copyWith(color: kWhite)),
+                    TextSpan(
+                        text: 'hours ',
+                        style: TextFonts().kRegular14.copyWith(color: kWhite)),
+                    TextSpan(
+                        text: '${idealSleep.inMinutes % 60}',
+                        style: TextFonts().kMedium16.copyWith(color: kWhite)),
+                    TextSpan(
+                        text: 'minutes ',
+                        style: TextFonts().kRegular14.copyWith(color: kWhite)),
+                  ])),
                 ),
                 SizedBox(
                   height: 15.h,

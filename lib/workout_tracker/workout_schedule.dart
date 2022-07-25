@@ -11,7 +11,7 @@ import 'package:intl/intl.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:masmas_fit/workout_tracker/add_workout_schedule.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-
+import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:masmas_fit/assets.dart';
 import 'package:masmas_fit/colors.dart';
 import 'package:masmas_fit/meal_planner/meal_schedule_item_card.dart';
@@ -116,54 +116,61 @@ class _WorkoutScheduleState extends State<WorkoutSchedule> {
 
             SizedBox(
               height: 24 * 38.h,
-              child: SfCalendar(
-                  minDate: DateTime.now(),
-                  maxDate: DateTime.now(),
-                  onSelectionChanged: (_) {},
-                  initialDisplayDate: DateTime.now().subtract(2.hours),
-                  viewHeaderHeight: 0,
-                  headerHeight: 0,
-                  appointmentBuilder: (context, appointmentDetails) {
-                    final DateTime startTime =
-                        appointmentDetails.appointments.first.startTime;
-                    final String subject =
-                        appointmentDetails.appointments.first.subject;
-                    return Center(
-                      child: AppointmentCard(
-                        appointmentSubject: subject,
-                        completed: false,
-                        startTime: startTime,
-                      ),
-                    );
-                  },
-                  dataSource: _AppointmentDataSource([
-                    Appointment(
-                        subject: 'UpperBody Workout',
-                        startTime: DateTime(DateTime.now().year,
-                            DateTime.now().month, DateTime.now().day, 7, 30),
-                        endTime: DateTime(DateTime.now().year,
-                            DateTime.now().month, DateTime.now().day, 8, 30)),
-                    Appointment(
-                        subject: 'Lowerbody Workout',
-                        startTime: DateTime(DateTime.now().year,
-                            DateTime.now().month, DateTime.now().day, 9),
-                        endTime: DateTime(DateTime.now().year,
-                            DateTime.now().month, DateTime.now().day, 10)),
-                    Appointment(
-                        subject: 'Ab Workout',
-                        startTime: DateTime(DateTime.now().year,
-                            DateTime.now().month, DateTime.now().day, 20),
-                        endTime: DateTime(DateTime.now().year,
-                            DateTime.now().month, DateTime.now().day, 21))
-                  ]),
-                  timeSlotViewSettings: TimeSlotViewSettings(
-                      numberOfDaysInView: 1,
-                      timeRulerSize: 85.h,
-                      timeIntervalWidth: 10,
-                      timeFormat: 'hh:mm a',
-                      timeTextStyle:
-                          TextFonts().kRegular12.copyWith(color: kGrey1),
-                      timeIntervalHeight: 38.h)),
+              child: SfCalendarTheme(
+                data: SfCalendarThemeData(
+                    cellBorderColor: kBorderColor,
+                    backgroundColor: kWhite,
+                    brightness: Brightness.light),
+                child: SfCalendar(
+                    minDate: DateTime.now().subtract(Duration(hours: 1)),
+                    maxDate: DateTime.now(),
+                    onSelectionChanged: (_) {},
+                    selectionDecoration: null,
+                    initialDisplayDate: DateTime.now().subtract(2.hours),
+                    viewHeaderHeight: 0,
+                    headerHeight: 0,
+                    appointmentBuilder: (context, appointmentDetails) {
+                      final DateTime startTime =
+                          appointmentDetails.appointments.first.startTime;
+                      final String subject =
+                          appointmentDetails.appointments.first.subject;
+                      return Center(
+                        child: AppointmentCard(
+                          appointmentSubject: subject,
+                          completed: false,
+                          startTime: startTime,
+                        ),
+                      );
+                    },
+                    dataSource: _AppointmentDataSource([
+                      Appointment(
+                          subject: 'UpperBody Workout',
+                          startTime: DateTime(DateTime.now().year,
+                              DateTime.now().month, DateTime.now().day, 7, 30),
+                          endTime: DateTime(DateTime.now().year,
+                              DateTime.now().month, DateTime.now().day, 8, 30)),
+                      Appointment(
+                          subject: 'Lowerbody Workout',
+                          startTime: DateTime(DateTime.now().year,
+                              DateTime.now().month, DateTime.now().day, 9),
+                          endTime: DateTime(DateTime.now().year,
+                              DateTime.now().month, DateTime.now().day, 10)),
+                      Appointment(
+                          subject: 'Ab Workout',
+                          startTime: DateTime(DateTime.now().year,
+                              DateTime.now().month, DateTime.now().day, 20),
+                          endTime: DateTime(DateTime.now().year,
+                              DateTime.now().month, DateTime.now().day, 21))
+                    ]),
+                    timeSlotViewSettings: TimeSlotViewSettings(
+                        numberOfDaysInView: 1,
+                        timeRulerSize: 85.h,
+                        timeIntervalWidth: 10,
+                        timeFormat: 'hh:mm a',
+                        timeTextStyle:
+                            TextFonts().kRegular12.copyWith(color: kGrey1),
+                        timeIntervalHeight: 38.h)),
+              ),
             )
           ],
         ),

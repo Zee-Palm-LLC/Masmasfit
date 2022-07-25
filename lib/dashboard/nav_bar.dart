@@ -79,8 +79,10 @@ class CustomNavBar extends StatelessWidget {
 
   Widget _buildCenterButton() {
     return Transform.translate(
-      offset: Offset(0, -10),
+      offset: Offset(0, -15),
       child: Container(
+          margin: EdgeInsets.zero,
+          padding: EdgeInsets.zero,
           decoration: BoxDecoration(
               boxShadow: [kBlueShadow],
               shape: BoxShape.circle,
