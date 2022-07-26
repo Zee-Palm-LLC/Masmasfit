@@ -2,8 +2,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icon.dart';
+import 'package:masmas_fit/assets.dart';
 import 'dart:math' as math;
 import 'package:masmas_fit/colors.dart';
 import 'package:masmas_fit/text_fonts.dart';
@@ -98,7 +100,18 @@ class _WorkoutDifficultPickerState extends State<WorkoutDifficultPicker> {
               difficulties[difficultyIndex],
               style: TextFonts().kRegular10.copyWith(color: kGrey1),
             ),
-            Icon(Icons.navigate_next_rounded, color: kGrey1, size: 20.w),
+            SizedBox(
+              width: 10.w,
+            ),
+            SizedBox(
+              width: 10.w,
+              height: 10.w,
+              child: SvgPicture.asset(
+                Assets().kCustomNext,
+                color: kGrey1,
+                fit: BoxFit.contain,
+              ),
+            ),
             SizedBox(width: 15.w),
           ],
         ),

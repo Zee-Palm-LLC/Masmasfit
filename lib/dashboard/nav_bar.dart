@@ -1,11 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:gradient_widgets/gradient_widgets.dart';
+import 'package:masmas_fit/assets.dart';
 import 'package:masmas_fit/colors.dart';
 import 'package:masmas_fit/dashboard/dashboard.dart';
 import 'package:masmas_fit/meal_planner/meal_planner.dart';
@@ -16,20 +19,6 @@ import 'package:masmas_fit/sleep_tracker/sleep_tracker.dart';
 import 'package:masmas_fit/widgets/floating_action_progress_button.dart';
 import 'package:masmas_fit/workout_tracker/workout_tracker.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-
-class CustomNavbar extends StatefulWidget {
-  const CustomNavbar({Key? key}) : super(key: key);
-
-  @override
-  State<CustomNavbar> createState() => _CustomNavbarState();
-}
-
-class _CustomNavbarState extends State<CustomNavbar> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
 
 class CustomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -45,7 +34,7 @@ class CustomNavBar extends StatelessWidget {
   Widget _buildItem(PersistentBottomNavBarItem item, bool isSelected) {
     return Container(
         alignment: Alignment.center,
-        height: 60.h,
+        height: 100.h,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
@@ -79,36 +68,42 @@ class CustomNavBar extends StatelessWidget {
 
   Widget _buildCenterButton() {
     return Transform.translate(
-      offset: Offset(0, -15),
-      child: Container(
-          margin: EdgeInsets.zero,
-          padding: EdgeInsets.zero,
-          decoration: BoxDecoration(
-              boxShadow: [kBlueShadow],
-              shape: BoxShape.circle,
-              gradient: kBlueLinear),
-          alignment: Alignment.center,
-          height: 60.w,
-          width: 60.w,
-          child: Center(
-            child: Icon(
-              Icons.search,
-              color: kWhite,
-            ),
-          )),
+      offset: Offset(0, -18),
+      child: Transform.scale(
+        scale: 1.3,
+        child: Container(
+            margin: EdgeInsets.symmetric(horizontal: 10.w),
+            decoration: BoxDecoration(
+                boxShadow: [kBlueShadow],
+                shape: BoxShape.circle,
+                gradient: kBlueLinear),
+            alignment: Alignment.center,
+            height: 60.w,
+            width: 60.w,
+            child: Center(
+                child: SizedBox(
+                    width: 20.w,
+                    height: 20.w,
+                    child: SvgPicture.asset(
+                      Assets().kCustomSearch,
+                      fit: BoxFit.contain,
+                    )))),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+        margin: EdgeInsets.zero,
+        padding: EdgeInsets.zero,
         decoration: BoxDecoration(
           boxShadow: [kCardShadow],
           border: Border.all(color: Colors.transparent),
           color: Colors.white,
         ),
         width: Get.width,
-        height: 100.h,
+        height: 150.h,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: items.map((item) {

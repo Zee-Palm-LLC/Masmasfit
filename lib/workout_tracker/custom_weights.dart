@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:line_icons/line_icon.dart';
+import 'package:masmas_fit/assets.dart';
 import 'package:masmas_fit/text_fonts.dart';
 import 'package:masmas_fit/colors.dart';
 
@@ -27,8 +29,13 @@ class CustomWeights extends StatelessWidget {
           Text('Custom Weights',
               style: TextFonts().kRegular12.copyWith(color: kGrey1)),
           const Expanded(child: SizedBox()),
-          Icon(Icons.navigate_next_rounded, color: kGrey1, size: 20.w),
-          SizedBox(width: 15.w),
+          SizedBox(
+              height: 20.w,
+              child: SvgPicture.asset(
+                Assets().kCustomNext,
+                fit: BoxFit.contain,
+              )),
+          SizedBox(width: 22.w),
         ],
       ),
     );

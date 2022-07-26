@@ -2,7 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import 'package:masmas_fit/assets.dart';
 
 import 'package:masmas_fit/colors.dart';
 import 'package:masmas_fit/text_fonts.dart';
@@ -68,7 +70,18 @@ class _ScheduleWorkoutDetailState extends State<ScheduleWorkoutDetail> {
               '${DateFormat.Md().format(widget.workoutTime)}, ${DateFormat.jm().format(widget.workoutTime)}',
               style: TextFonts().kRegular10.copyWith(color: kGrey1),
             ),
-            Icon(Icons.navigate_next_rounded, color: kGrey1, size: 20.w),
+            SizedBox(
+              width: 10.w,
+            ),
+            SizedBox(
+              width: 10.w,
+              height: 10.w,
+              child: SvgPicture.asset(
+                Assets().kCustomNext,
+                color: kGrey1,
+                fit: BoxFit.contain,
+              ),
+            ),
             SizedBox(width: 15.w),
           ],
         ),

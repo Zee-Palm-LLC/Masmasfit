@@ -80,8 +80,8 @@ class MealTypeCard extends StatelessWidget {
             Align(
               alignment: Alignment.topRight,
               child: SizedBox(
-                width: 110.w,
-                height: 70.h,
+                width: 105.w,
+                height: 65.h,
                 child: SvgPicture.asset(
                   Assets().kPie,
                   fit: BoxFit.contain,

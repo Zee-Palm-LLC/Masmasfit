@@ -81,6 +81,9 @@ class _ViewStatisticsState extends State<ViewStatistics> {
                 style: TextFonts().kBold16.copyWith(color: kWhite),
               ),
               callback: () {}),
+        ),
+        SizedBox(
+          height: 30.h,
         )
       ],
     );

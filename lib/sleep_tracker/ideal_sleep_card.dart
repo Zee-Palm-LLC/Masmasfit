@@ -22,13 +22,16 @@ class IdealSleepCard extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 20.w, top: 23.h),
+            padding: EdgeInsets.only(left: 20.0.w, top: 23.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Ideal Hours for Sleep',
-                  style: TextFonts().kMedium12,
+                SizedBox(
+                  height: 18.w,
+                  child: Text(
+                    'Ideal Hours for Sleep',
+                    style: TextFonts().kRegular14,
+                  ),
                 ),
                 SizedBox(
                   height: 5.h,
@@ -39,9 +42,6 @@ class IdealSleepCard extends StatelessWidget {
                   },
                   child: RichText(
                       text: TextSpan(children: [
-                    TextSpan(
-                        text: 'in ',
-                        style: TextFonts().kRegular14.copyWith(color: kWhite)),
                     TextSpan(
                         text: '${idealSleep.inHours}',
                         style: TextFonts().kMedium16.copyWith(color: kWhite)),

@@ -37,9 +37,12 @@ class MyGoalsState extends State<MyGoals> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 20.h,
+                  height: MediaQuery.of(context).padding.top + 10.h,
                 ),
                 Text('What is your goal ?', style: TitleFonts().kBold20),
+                SizedBox(
+                  height: 5.h,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 95.w),
                   child: Text(
@@ -52,7 +55,7 @@ class MyGoalsState extends State<MyGoals> {
                 ),
                 SizedBox(
                   width: Get.width,
-                  height: 500.h,
+                  height: 484.h,
                   child: PageView.builder(
                       controller: _pc,
                       onPageChanged: (page) {
@@ -68,11 +71,14 @@ class MyGoalsState extends State<MyGoals> {
                         return Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 5.w, vertical: margin),
-                          child: GoalCard(
-                              active: active,
-                              title: goals[pagePosition]['title']!,
-                              imagePath: goals[pagePosition]['imagePath']!,
-                              description: goals[pagePosition]['description']!),
+                          child: Center(
+                            child: GoalCard(
+                                active: active,
+                                title: goals[pagePosition]['title']!,
+                                imagePath: goals[pagePosition]['imagePath']!,
+                                description: goals[pagePosition]
+                                    ['description']!),
+                          ),
                         );
                       }),
                 ),
@@ -83,7 +89,7 @@ class MyGoalsState extends State<MyGoals> {
                       elevation: 1,
                       shadowColor: kPurpleShadowColor,
                       increaseWidthBy: Get.width,
-                      increaseHeightBy: 18.h,
+                      increaseHeightBy: 30.h,
                       gradient: kBlueLinear,
                       child: Text(
                         'Confirm',

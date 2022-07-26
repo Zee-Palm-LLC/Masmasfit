@@ -27,7 +27,7 @@ class _TimeDropdownState extends State<TimeDropdown> {
       decoration: BoxDecoration(
           gradient: kBlueLinear, borderRadius: BorderRadius.circular(50.r)),
       child: SizedBox(
-        width: 76.w,
+        width: 80.w,
         height: 30.h,
         child: ButtonTheme(
           alignedDropdown: true,

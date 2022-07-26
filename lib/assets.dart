@@ -62,4 +62,6 @@ class Assets {
   String kSkippingRope = 'assets/skipping-rope.svg';
   String kMealSearchFilter = 'assets/meal_search_filter.svg';
   String kCustomPointDown = 'assets/custom_point_down.svg';
+  String kCustomNext = 'assets/custom_next.svg';
+  String kCustomSearch = 'assets/custom_search.svg';
 }

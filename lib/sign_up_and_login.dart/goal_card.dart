@@ -27,7 +27,7 @@ class GoalCard extends StatelessWidget {
       duration: Duration(milliseconds: 500),
       curve: Curves.easeIn,
       child: Container(
-        height: active ? 478.h : 478.h - 100.h,
+        height: active ? 484.h : 478.h - 100.h,
         width: 275.w,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(22.r),
@@ -46,7 +46,7 @@ class GoalCard extends StatelessWidget {
                         imagePath,
                         fit: BoxFit.contain,
                       )),
-                  SizedBox(height: 30.h),
+                  SizedBox(height: 20.h),
                   Text(
                     title,
                     style: TextFonts().kSemiBold14.copyWith(color: kWhite),
@@ -67,6 +67,9 @@ class GoalCard extends StatelessWidget {
                       style: TextFonts().kRegular12.copyWith(color: kWhite),
                       textAlign: TextAlign.center,
                     ),
+                  ),
+                  SizedBox(
+                    height: 30.h,
                   )
                 ],
               )

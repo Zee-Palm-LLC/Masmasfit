@@ -235,7 +235,7 @@ class _ComparisonResultState extends State<ComparisonResult> {
                             callback: () {}),
                       ),
                       SizedBox(
-                        height: 10.h,
+                        height: 30.h,
                       ),
                     ],
                   ),

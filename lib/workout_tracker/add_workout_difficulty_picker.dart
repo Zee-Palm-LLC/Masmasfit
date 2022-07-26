@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:line_icons/line_icon.dart';
+import 'package:masmas_fit/assets.dart';
 import 'package:masmas_fit/text_fonts.dart';
 import 'package:masmas_fit/colors.dart';
 import 'dart:math' as math;
@@ -74,10 +76,15 @@ class _AddWorkoutDifficultPickerState extends State<AddWorkoutDifficultPicker> {
               style: TextFonts().kRegular10.copyWith(color: kGrey2),
             ),
             SizedBox(
-              width: 5.w,
+              width: 10.w,
             ),
-            Icon(Icons.navigate_next_rounded, color: kGrey1, size: 20.w),
-            SizedBox(width: 15.w),
+            SizedBox(
+                height: 20.w,
+                child: SvgPicture.asset(
+                  Assets().kCustomNext,
+                  fit: BoxFit.contain,
+                )),
+            SizedBox(width: 22.w),
           ],
         ),
       ),
