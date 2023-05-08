@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -10,7 +8,6 @@ import 'package:masmas_fit/colors.dart';
 import 'package:masmas_fit/onboarding/onboarding_4.dart';
 import 'package:masmas_fit/text_fonts.dart';
 import 'package:masmas_fit/title_fonts.dart';
-import 'package:masmas_fit/widgets/custom_elevated_button.dart';
 import 'package:masmas_fit/widgets/floating_action_progress_button.dart';
 
 class OnboardingThree extends StatefulWidget {

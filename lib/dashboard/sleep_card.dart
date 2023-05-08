@@ -28,9 +28,7 @@ class SleepCard extends StatelessWidget {
               'Sleep',
               style: TextFonts().kMedium12,
             ),
-            SizedBox(
-              height: 5.h,
-            ),
+            
             GradientText(
               '7hr 56m',
               style: TextFonts().kSemiBold14,

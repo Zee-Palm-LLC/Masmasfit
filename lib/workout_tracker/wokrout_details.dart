@@ -409,8 +409,6 @@ class _WorkoutDetailsState extends State<WorkoutDetails> {
         reps: 0,
         duration: 5.minutes),
     ExerciseModel(
-        exerciseName: 'Jumping Jacks', exerciseImage: images[1], reps: 12),
-    ExerciseModel(
         exerciseName: 'Skipping',
         exerciseImage: images[2],
         reps: 0,
@@ -561,7 +559,6 @@ String printDuration(Duration duration) {
 
 List<String> images = [
   'https://ychef.files.bbci.co.uk/1376x774/p07ztf1q.jpg',
-  'https://cairowestmag.com/wp-content/uploads/2018/12/5b43ccf31335b831008b4c1c-750-563.jpg',
   'https://cdn.jefit.com/wp/wp-content/uploads/2017/08/Fitness-Goals.jpg',
   'https://assets.entrepreneur.com/content/3x2/2000/20151012194720-woman-exercising-workout.jpeg',
   'https://montreall.com/wp-content/uploads/2014/02/WomensGyms.jpg',

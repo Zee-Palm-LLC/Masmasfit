@@ -24,7 +24,7 @@ class GoalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeIn,
       child: Container(
         height: active ? 484.h : 478.h - 100.h,

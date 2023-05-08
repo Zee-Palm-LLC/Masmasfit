@@ -13,7 +13,6 @@ import 'package:masmas_fit/onboarding/onboarding_2.dart';
 import 'package:masmas_fit/sign_up_and_login.dart/register_page.dart';
 import 'package:masmas_fit/text_fonts.dart';
 import 'package:masmas_fit/title_fonts.dart';
-import 'package:masmas_fit/widgets/custom_elevated_button.dart';
 import 'package:masmas_fit/widgets/floating_action_progress_button.dart';
 
 class OnboardingFour extends StatefulWidget {

@@ -53,9 +53,7 @@ class MyGoalsState extends State<MyGoals> {
                 SizedBox(
                   height: 50.h,
                 ),
-                SizedBox(
-                  width: Get.width,
-                  height: 484.h,
+                Expanded(
                   child: PageView.builder(
                       controller: _pc,
                       onPageChanged: (page) {
@@ -67,7 +65,7 @@ class MyGoalsState extends State<MyGoals> {
                       pageSnapping: true,
                       itemBuilder: (context, pagePosition) {
                         bool active = activePage == pagePosition;
-                        double margin = active ? 10.w : 50.w;
+                        double margin = active ? 5.w : 50.w;
                         return Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 5.w, vertical: margin),
@@ -82,7 +80,6 @@ class MyGoalsState extends State<MyGoals> {
                         );
                       }),
                 ),
-                const Expanded(child: SizedBox()),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: GradientButton(

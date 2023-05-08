@@ -12,14 +12,11 @@ import 'package:line_icons/line_icon.dart';
 import 'package:masmas_fit/assets.dart';
 import 'package:masmas_fit/colors.dart';
 import 'package:masmas_fit/link_fonts.dart';
-import 'package:masmas_fit/onboarding/onboarding_2.dart';
 import 'package:masmas_fit/sign_up_and_login.dart/complete_profile.dart';
 import 'package:masmas_fit/sign_up_and_login.dart/login.dart';
 import 'package:masmas_fit/text_fonts.dart';
 import 'package:masmas_fit/title_fonts.dart';
-import 'package:masmas_fit/widgets/custom_elevated_button.dart';
 import 'package:masmas_fit/widgets/custom_text_form_field.dart';
-import 'package:masmas_fit/widgets/floating_action_progress_button.dart';
 import 'package:masmas_fit/widgets/safe_area_wrapper.dart';
 import 'package:masmas_fit/widgets/third_party_login_tile.dart';
 

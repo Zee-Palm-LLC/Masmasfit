@@ -247,13 +247,11 @@ class _ComparisonResultState extends State<ComparisonResult> {
 
   List<String> categories = [
     'Front Facing',
-    'Back Facing',
     'Left Facing',
     'Right Facing'
   ];
   List<String> imagesMont1 = [
     'https://ychef.files.bbci.co.uk/1376x774/p07ztf1q.jpg',
-    'https://cairowestmag.com/wp-content/uploads/2018/12/5b43ccf31335b831008b4c1c-750-563.jpg',
     'https://cdn.jefit.com/wp/wp-content/uploads/2017/08/Fitness-Goals.jpg',
     'https://assets.entrepreneur.com/content/3x2/2000/20151012194720-woman-exercising-workout.jpeg',
   ];
